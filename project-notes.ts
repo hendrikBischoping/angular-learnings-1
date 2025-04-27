@@ -15,22 +15,44 @@
 //      - handling user events
 //      - rendering and updating dynamic UI content
 //  
-//  all project-dependencies are saved in the 'package.json' file
-//  you can install them at once by typing into powershell => npm install
 //  
+//  project root level:
+//      - tsconfig...json files control how TypeScript-files will be compiled into JavaScript-Code; stricktness of TypeScript; how quick TS complains about potential errors etc. (don`t change if not nessesary)
 //  
+//      - all project-dependencies are saved in the 'package.json' file
 //  
+//      - you can install them at once by typing into powershell => npm install
 //  
+//      - angular.json containx extra configurations for the angular CLI ans angular provided tools in general (don`t change if not nessesary)
 //  
+//  project src folder
+//      - app folder
+//          - most used folder: contains all components etc. of the project
+//          
+//      - assets folder (folder to save used content such as images)
+//      
+//      - index.html
+//          - main html-file that will be loaded, when visitors visit the webside
+//      
+//      - main.ts
+//          - first code-file that will be loaded / executed
+//      
+//      - style.scss
+//          - general style for all components
 //  
+//  classes: (often as export at the end of an component.ts: 'export class AppComponent {}')
+//      classes are a standard JavaScript feature (when using modern JavaScript) -it`s NOT a TypeScript-specific construct
 //  
-//  
-//  
-//  
-//  
-//  
-//  
-//  
+//  angular-decorators: (adds extra meta-data into parts of the project (e.g. classes))
+//      component-decorator: (part of the angular-framework: importet from '@angular/core')
+//
+//          @Component({
+//            selector: 'app-root',
+//            standalone: true,
+//            imports: [],
+//            templateUrl: './app.component.html',
+//            styleUrl: './app.component.css',
+//          })
 //  
 //  
 //  
