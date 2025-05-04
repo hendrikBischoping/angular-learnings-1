@@ -1,7 +1,9 @@
 <div>
     <button>
-        <img src="" alt="">
-        <span>{{ selectedUser.name }}</span> 
+        <img [src]="'assets/users/' + selectedUser.avatar" [alt]="selectedUser.name"> <!-- dynamic path -->
+        <!-- [...] is a so called property binding syntax by angular-->
+        <span>{{ selectedUser.name }}</span>
+        <!-- {{ selectedUser.name }} is a so called string intapolation -->
         <!-- selectedUser is an Object containing 'avatar', 'id', and 'name' -->
     </button>
 </div>
