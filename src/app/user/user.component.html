@@ -1,5 +1,5 @@
 <div>
-    <button>
+    <button (click)="onSelectUser()"> <!-- '(click)' = angular version of an event listener -->
         <img [src]="imgPth" [alt]="selectedUser.name"> <!-- dynamic path -->
         <!-- [...] is a so called property binding syntax by angular-->
         <span>{{ selectedUser.name }}</span>
