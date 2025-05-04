@@ -1,6 +1,6 @@
 <div>
     <button>
-        <img [src]="'assets/users/' + selectedUser.avatar" [alt]="selectedUser.name"> <!-- dynamic path -->
+        <img [src]="imgPth" [alt]="selectedUser.name"> <!-- dynamic path -->
         <!-- [...] is a so called property binding syntax by angular-->
         <span>{{ selectedUser.name }}</span>
         <!-- {{ selectedUser.name }} is a so called string intapolation -->
