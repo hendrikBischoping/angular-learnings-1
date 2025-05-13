@@ -2,7 +2,7 @@
 //  
 //  Angular CLI
 //      Angular CLI is the 'command line interface' powered by node js
-//      it is used to for example install Angular itself globally on your device 
+//      it is used to e.g. install Angular itself globally on your device 
 //      (npm install - @angular/cli)
 //      
 //  Create an new Angular-project:
@@ -23,7 +23,7 @@
 //  
 //      - you can install them at once by typing into powershell => npm install
 //  
-//      - angular.json containx extra configurations for the angular CLI ans angular provided tools in general (don`t change if not nessesary)
+//      - angular.json contains extra configurations for the angular CLI and angular provided tools in general (don`t change if not nessesary)
 //  
 //  project src folder
 //      - app folder
@@ -54,8 +54,8 @@
 //            styleUrl: './app.component.css',
 //          })
 //  
-//  
-//  
+//  'properties' & ''
+//      
 //  
 //  
 //  
