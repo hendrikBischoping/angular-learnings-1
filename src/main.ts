@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 
-import { AppComponent } from './app/app.component'; //component 'app-component' got imported into this main.ts  -  you NEED TO import components into the files/components where you want to use them!!
+import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent).catch((err) => console.error(err));

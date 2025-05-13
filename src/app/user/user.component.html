@@ -1,9 +1,6 @@
 <div>
-    <button (click)="onSelectUser()"> <!-- '(click)' = angular version of an event listener -->
-        <img [src]="imagePath()" [alt]="selectedUser().name"> <!-- dynamic path -->
-        <!-- [...] is a so called property binding syntax by angular-->
-        <span>{{ selectedUser().name }}</span> <!-- in 'signals' you need to call the 'signal-Value' (property) as a function. () activates the 'read()-function' of signals -->
-        <!-- {{ selectedUser.name }} is a so called string intapolation -->
-        <!-- selectedUser is an Object containing 'avatar', 'id', and 'name' -->
+    <button (click)="onSelectUser()">
+        <img [src]="imagePath()" [alt]="selectedUser().name">
+        <span>{{ selectedUser().name }}</span>
     </button>
 </div>
