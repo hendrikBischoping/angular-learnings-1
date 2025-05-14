@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, Input, input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -8,12 +8,20 @@ import { Component, Input } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({required: true}) avatar!: string; //'decoratores (@...) can be added to classes BUT ALSO to properties within classes!
-  @Input({required: true}) name!: string; // '{required: true}' is a configuration-option to set the property 'name' (and 'avatar') as 'required' (angular throws an error if the properts isn`t set!)
+  // @Input({required: true}) avatar!: string;
+  // @Input({required: true}) name!: string;
+  //avatar = input(''); // tells angular that 'avatar' is an input to this component (setable as attribute when using the component)
+  // avatar = input<string>(); // alternative, using a generic type (from TypeScript)
+  avatar = input.required<string>(); // alternative of accepting inputs in a modern way 
+  name = input.required<string>();
 
-  get imagePath() {
-     return 'assets/users/' + this.avatar;
-  }
+  imagePath = computed(() => {
+    return 'assets/users/' + this.avatar();
+  });
+
+  // get imagePath() {
+  //    return 'assets/users/' + this.avatar;
+  // }
 
   onSelectUser() {
     
