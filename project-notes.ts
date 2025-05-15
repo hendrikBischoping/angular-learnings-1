@@ -57,15 +57,19 @@
 //  'properties' & ''
 //      
 //  
+//  @Output:    [user.component]
+//      @Output() select = new EventEmitter();
+//      - @Output(): predefined function from Angular core
+//      - select: the name should describe the custom event/value that should be emitted (observed/submitted by any interested)
+//      - new EventEmitter(): instance of the predefined angular-class "EventEmitter" (from @angular/core)
+//      - EventEmitter(): called as a function
 //  
-//  
-//  
-//  
-//  
-//  
-//  
-//  
-//  
+//      this.select.emit();
+//      - belongs into a called method/function (e.g. onSelectUser in user.component (not app.component))
+//      - 'emit()' is a predefined function from 'EventEmitter' 
+//      - emits the specific value that ist stored in 'select' (e.g. an id)
+//      - e.g: this.select.emit(this.id) ==> ('@Input...id:string;' within user.component)
+//      - passes the value(id) back to the parent-component (app.component) whenever an user is selected
 //  
 //  
 //  
