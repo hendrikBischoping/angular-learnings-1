@@ -62,7 +62,7 @@
 //      - allows to set dynamical values to DOM-elements
 //      - the set 'properties' detect changing values and use them 
 //      - (attributes are static & were reade only once when page loads)
-//      - 'properties are able to get changed, but thios is not nessecary
+//      - 'properties are able to get changed, but thios is not necessary
 //     !- property binding sets dynamiccal values from outside a component, what makes the (default) component reuseable
 //
 //      - required & optional @Inputs

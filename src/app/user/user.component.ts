@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -11,7 +11,9 @@ export class UserComponent {
   @Input({required: true}) id!: string;
   @Input({required: true}) avatar!: string;
   @Input({required: true}) name!: string;
-  @Output() select = new EventEmitter();
+  // @Output() select = new EventEmitter(); ==> is the older/first version od output() an very common / often used yet
+  select = output<string>(); // similar to @Output (does the same), but is newer, shorter and without any decorators (pendant to 'input()' but without using/creating 'signals')
+  //typing 'output()' with '<string>' is necessary to tell TS the type of 'this.id' in 'this.select.emit(this.id);' (the emitted value)
 
   get imagePath() {
      return 'assets/users/' + this.avatar;

@@ -4,8 +4,7 @@
     <ul id="users">
         <li>
             <app-user [id]="users[0].id" [avatar]="users[0].avatar" [name]="users[0].name"
-                (select)="onOpenUser($event)" /> <!--'$event' is like a placeholder for any value that gets emitted (in user.c.ts)-->
-                <!-- '$event'-dataflow: (click) ==> 'onSelectUser' in user.component ==> 'this.select.emit(this.id)' ==> '(select)="onSelectUser($event)"' in app.component 'onSelectUser(id: string) { ... }''-->
+                (select)="onOpenUser($event)" />
         </li>
         <li>
             <app-user [id]="users[1].id" [avatar]="users[1].avatar" [name]="users[1].name"
