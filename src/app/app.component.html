@@ -4,23 +4,20 @@
     <ul id="users">
         <li>
             <app-user [id]="users[0].id" [avatar]="users[0].avatar" [name]="users[0].name"
-                (select)="onSelectUser($event)" />
-                <!-- (select)="onSelectUser($event)" custom-event-listenet for custom event 'select' (event binding) -->
-                <!-- (select)="function()" works the same way as e.g. (click)="function()"-->
-                <!-- '$event' is a variable provided by angular. Works with custom events (e.g. 'select') as well as with built in events (e.g. 'click')-->
-                <!-- '$event' contains the specific data/value that was emitted by the (listened) event-->
+                (select)="onOpenUser($event)" /> <!--'$event' is like a placeholder for any value that gets emitted (in user.c.ts)-->
+                <!-- '$event'-dataflow: (click) ==> 'onSelectUser' in user.component ==> 'this.select.emit(this.id)' ==> '(select)="onSelectUser($event)"' in app.component 'onSelectUser(id: string) { ... }''-->
         </li>
         <li>
             <app-user [id]="users[1].id" [avatar]="users[1].avatar" [name]="users[1].name"
-                (select)="onSelectUser($event)" />
+                (select)="onOpenUser($event)" />
         </li>
         <li>
             <app-user [id]="users[2].id" [avatar]="users[2].avatar" [name]="users[2].name"
-                (select)="onSelectUser($event)" />
+                (select)="onOpenUser($event)" />
         </li>
         <li>
             <app-user [id]="users[3].id" [avatar]="users[3].avatar" [name]="users[3].name"
-                (select)="onSelectUser($event)" />
+                (select)="onOpenUser($event)" />
         </li>
     </ul>
 </main>

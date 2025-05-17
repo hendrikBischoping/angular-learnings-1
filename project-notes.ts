@@ -54,12 +54,24 @@
 //            styleUrl: './app.component.css',
 //          })
 //  
-//  'properties' & ''
+//  'properties' & 'attributes'
 //      
 //  
+//  @Input = setable properties (e.g. [avatar]="...")           [user.component]
+//      - @Input(): predefined function from '@angular/core'
+//      - allows to set dynamical values to DOM-elements
+//      - the set 'properties' detect changing values and use them 
+//      - (attributes are static & were reade only once when page loads)
+//      - 'properties are able to get changed, but thios is not nessecary
+//     !- property binding sets dynamiccal values from outside a component, what makes the (default) component reuseable
+//
+//      - required & optional @Inputs
+//          - add an 'configuration-object' '{...}' to the input, e.g.: @Input({required: true}) ==> angular knows, this is reguired (error if it is missing)
+//      
+//      
 //  @Output:    [user.component]
 //      @Output() select = new EventEmitter();
-//      - @Output(): predefined function from Angular core
+//      - @Output(): predefined function from '@angular/core'
 //      - select: the name should describe the custom event/value that should be emitted (observed/submitted by any interested)
 //      - new EventEmitter(): instance of the predefined angular-class "EventEmitter" (from @angular/core)
 //      - EventEmitter(): called as a function
