@@ -11,9 +11,7 @@ export class UserComponent {
   @Input({required: true}) id!: string;
   @Input({required: true}) avatar!: string;
   @Input({required: true}) name!: string;
-  // @Output() select = new EventEmitter(); ==> is the older/first version od output() an very common / often used yet
-  select = output<string>(); // similar to @Output (does the same), but is newer, shorter and without any decorators (pendant to 'input()' but without using/creating 'signals')
-  //typing 'output()' with '<string>' is necessary to tell TS the type of 'this.id' in 'this.select.emit(this.id);' (the emitted value)
+  @Output() select = new EventEmitter<string>(); // '<string>' generic typing the value of the EventEmitter isn`t necessary but increases the security for TS that the correct type of value will be emitted( the thype, that will be expected in app.component.ts/onOpenUser(id: string))
 
   get imagePath() {
      return 'assets/users/' + this.avatar;
@@ -21,6 +19,6 @@ export class UserComponent {
 
   onSelectUser() {
     this.select.emit(this.id);
-    console.log('This user has the id: '+ this.id);
+    // console.log('This user is called ' + this.name);
   }
 }

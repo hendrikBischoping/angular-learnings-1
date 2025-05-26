@@ -19,4 +19,7 @@
                 (select)="onOpenUser($event)" />
         </li>
     </ul>
+    <!-- <app-taskboard [name]="selectedUser?.name" /> -->
+     <!-- '?' tells JavaScript that 'selectedUser' can be undefined -->
+    <app-taskboard [name]="selectedUser ? selectedUser.name : 'Error - name wasn`t found!' " /> <!-- fallback-option if 'selectedUser was undefined' -->
 </main>
