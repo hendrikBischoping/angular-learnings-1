@@ -3,23 +3,18 @@
 <main>
     <ul id="users">
         <li>
-            <app-user [id]="users[0].id" [avatar]="users[0].avatar" [name]="users[0].name"
-                (select)="onOpenUser($event)" />
+            <app-user [user]="users[0]" (select)="onOpenUser($event)" />
         </li>
         <li>
-            <app-user [id]="users[1].id" [avatar]="users[1].avatar" [name]="users[1].name"
-                (select)="onOpenUser($event)" />
+            <app-user [user]="users[1]" (select)="onOpenUser($event)" />
         </li>
         <li>
-            <app-user [id]="users[2].id" [avatar]="users[2].avatar" [name]="users[2].name"
-                (select)="onOpenUser($event)" />
+            <app-user [user]="users[2]" (select)="onOpenUser($event)" />
         </li>
         <li>
-            <app-user [id]="users[3].id" [avatar]="users[3].avatar" [name]="users[3].name"
-                (select)="onOpenUser($event)" />
+            <app-user [user]="users[3]" (select)="onOpenUser($event)" />
         </li>
     </ul>
-    <!-- <app-taskboard [name]="selectedUser?.name" /> -->
-     <!-- '?' tells JavaScript that 'selectedUser' can be undefined -->
-    <app-taskboard [name]="selectedUser ? selectedUser.name : 'Error - name wasn`t found!' " /> <!-- fallback-option if 'selectedUser was undefined' -->
+    <app-taskboard [name]="selectedUser ? selectedUser.name : 'Error - name wasn`t found!' " />
+    <!-- fallback-option if 'selectedUser was undefined' -->
 </main>

@@ -1,5 +1,17 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 
+// type User = { // '{...}' is a self created 'object-type'
+//     id: string;
+//     avatar: string;
+//     name: string;
+// } //alternativer to an interface
+
+interface User { // '{...}' is a self created 'object-type'
+    id: string;
+    avatar: string;
+    name: string;
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -8,17 +20,14 @@ import { Component, EventEmitter, Input, Output, output } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({required: true}) id!: string;
-  @Input({required: true}) avatar!: string;
-  @Input({required: true}) name!: string;
-  @Output() select = new EventEmitter<string>(); // '<string>' generic typing the value of the EventEmitter isn`t necessary but increases the security for TS that the correct type of value will be emitted( the thype, that will be expected in app.component.ts/onOpenUser(id: string))
+  @Input({ required: true }) user!: User;
+@Output() select = new EventEmitter<string>();
 
   get imagePath() {
-     return 'assets/users/' + this.avatar;
-  }
+  return 'assets/users/' + this.user.avatar;
+}
 
-  onSelectUser() {
-    this.select.emit(this.id);
-    // console.log('This user is called ' + this.name);
-  }
+onSelectUser() {
+  this.select.emit(this.user.id);
+}
 }
