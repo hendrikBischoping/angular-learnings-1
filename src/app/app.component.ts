@@ -13,7 +13,7 @@ import { TaskboardComponent } from './taskboard/taskboard.component';
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = 'u7';
+  selectedUserId = 'u1';
 
   get selectedUser() {
     return this.users.find((oneUser) => oneUser.id === this.selectedUserId);

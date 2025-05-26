@@ -1,12 +1,6 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 
-// type User = { // '{...}' is a self created 'object-type'
-//     id: string;
-//     avatar: string;
-//     name: string;
-// } //alternativer to an interface
-
-interface User { // '{...}' is a self created 'object-type'
+interface User {
     id: string;
     avatar: string;
     name: string;

@@ -2,18 +2,11 @@
 
 <main>
     <ul id="users">
+        @for (user of users; track user.id) { <!-- itterates through every 'user' of 'users' to render the data -->
         <li>
-            <app-user [user]="users[0]" (select)="onOpenUser($event)" />
+            <app-user [user]="user" (select)="onOpenUser($event)" />
         </li>
-        <li>
-            <app-user [user]="users[1]" (select)="onOpenUser($event)" />
-        </li>
-        <li>
-            <app-user [user]="users[2]" (select)="onOpenUser($event)" />
-        </li>
-        <li>
-            <app-user [user]="users[3]" (select)="onOpenUser($event)" />
-        </li>
+        }
     </ul>
     <app-taskboard [name]="selectedUser ? selectedUser.name : 'Error - name wasn`t found!' " />
     <!-- fallback-option if 'selectedUser was undefined' -->
