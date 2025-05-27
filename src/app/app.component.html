@@ -8,6 +8,9 @@
         </li>
         }
     </ul>
-    <app-taskboard [name]="selectedUser ? selectedUser.name : 'Error - name wasn`t found!' " />
-    <!-- fallback-option if 'selectedUser was undefined' -->
+    @if(selectedUser) {
+    <app-taskboard [name]="selectedUser.name" />
+    } @else {
+        <p><b>Select a User</b></p>
+    }
 </main>
