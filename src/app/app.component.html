@@ -9,7 +9,7 @@
         }
     </ul>
     @if(selectedUser) {
-    <app-taskboard [name]="selectedUser.name" />
+    <app-taskboard [name]="selectedUser.name" [userId]="selectedUser.id"/>
     } @else {
         <p><b>Select a User</b></p>
     }
