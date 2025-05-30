@@ -2,15 +2,21 @@
     <header>
         <h2>{{ name }}'s Tasks</h2>
         <menu>
-            <button>Add Task</button>
+            <button (click)="onAddTask()">Add Task</button>
         </menu>
     </header>
 
     <ul>
         @for (task of selectedUserTasks; track task.id) {
-            <li>
-                <app-task [task]="task" (complete)="onDeleteTask($event)" />
-            </li>
+        <li>
+            <app-task [task]="task" (complete)="onDeleteTask($event)" />
+        </li>
         }
     </ul>
+
+    @if (this.addTask) {
+    <div class="add-task" (click)="onAddTask()">
+        <app-add-task />
+    </div>
+    }
 </section>

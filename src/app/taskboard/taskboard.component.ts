@@ -1,16 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
+import { AddTaskComponent } from "./add-task/add-task.component";
 
 @Component({
   selector: 'app-taskboard',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, AddTaskComponent],
   templateUrl: './taskboard.component.html',
   styleUrl: './taskboard.component.css'
 })
 export class TaskboardComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) name!: string;
+  addTask: boolean = false;
 
   dummyTasks = [
     {
@@ -44,5 +46,9 @@ export class TaskboardComponent {
 
   onDeleteTask(id:string) {
     this.dummyTasks = this.dummyTasks.filter((taks) => taks.id !== id);
+  }
+
+  onAddTask() {
+    this.addTask = !this.addTask;
   }
 } 
