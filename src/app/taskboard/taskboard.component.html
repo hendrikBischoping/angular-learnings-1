@@ -15,8 +15,8 @@
     </ul>
 
     @if (this.addTask) {
-    <div class="add-task" (click)="onAddTask()">
-        <app-add-task />
+    <div class="add-task">
+        <app-add-task (cancle)="onCancleAddTask()"/>
     </div>
     }
 </section>

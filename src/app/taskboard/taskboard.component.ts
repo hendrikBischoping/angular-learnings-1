@@ -49,6 +49,10 @@ export class TaskboardComponent {
   }
 
   onAddTask() {
-    this.addTask = !this.addTask;
+    this.addTask = true;
+  }
+
+  onCancleAddTask() {
+    this.addTask = false;
   }
 } 

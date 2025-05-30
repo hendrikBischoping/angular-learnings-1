@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-task',
@@ -8,11 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './add-task.component.css'
 })
 export class AddTaskComponent {
-  onStartAddingTaks() {
-    console.log('Task added');
-  }
+  @Output() cancle = new EventEmitter<void>;
 
-  eventBubbling(event: MouseEvent) {
-    event.stopPropagation()
+  onCancleNewTask() {
+    this.cancle.emit();
   }
 }
