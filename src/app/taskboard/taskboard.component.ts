@@ -41,4 +41,8 @@ export class TaskboardComponent {
   get selectedUserTasks() {
     return this.dummyTasks.filter((task) => task.userId === this.userId)
   }
+
+  onDeleteTask(id:string) {
+    this.dummyTasks = this.dummyTasks.filter((taks) => taks.id !== id);
+  }
 } 
