@@ -14,9 +14,9 @@
         }
     </ul>
 
-    @if (this.addTask) {
+    @if (addTask) {
     <div class="add-task">
-        <app-add-task (cancle)="onCancleAddTask()"/>
+        <app-add-task (cancle)="onCancleAddTask()" (add)="onAddNewTask($event)"/>
     </div>
     }
 </section>

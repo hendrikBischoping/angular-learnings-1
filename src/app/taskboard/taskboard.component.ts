@@ -2,6 +2,9 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { AddTaskComponent } from "./add-task/add-task.component";
 
+import { type newTask } from './new-task.model';
+import { Task } from './task/task.model';
+
 @Component({
   selector: 'app-taskboard',
   standalone: true,
@@ -44,7 +47,7 @@ export class TaskboardComponent {
     return this.dummyTasks.filter((task) => task.userId === this.userId)
   }
 
-  onDeleteTask(id:string) {
+  onDeleteTask(id: string) {
     this.dummyTasks = this.dummyTasks.filter((taks) => taks.id !== id);
   }
 
@@ -54,5 +57,17 @@ export class TaskboardComponent {
 
   onCancleAddTask() {
     this.addTask = false;
+  }
+
+  onAddNewTask(task: newTask) {
+    this.dummyTasks.unshift({ //'unshift()' (alternative to 'push()') sets the obj. to the first place in the array
+    // this.dummyTasks.push({
+      id: new Date().getTime().toString(),
+      userId: this.userId,
+      title: task.title,
+      summary: task.summary,
+      dueDate: task.date,
+    })
+    this.onCancleAddTask()
   }
 } 
