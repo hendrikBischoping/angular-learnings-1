@@ -60,7 +60,7 @@ export class TaskboardComponent {
   }
 
   onAddNewTask(task: newTask) {
-    this.dummyTasks.unshift({ //'unshift()' (alternative to 'push()') sets the obj. to the first place in the array
+    this.dummyTasks.unshift({ //'unshift()' (alternative to 'push()') sets the obj. to the first place in the arr
     // this.dummyTasks.push({
       id: new Date().getTime().toString(),
       userId: this.userId,
