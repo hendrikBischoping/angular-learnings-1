@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+
 import { TaskComponent } from './task/task.component';
 import { AddTaskComponent } from "./add-task/add-task.component";
-
 import { type newTask } from './new-task.model';
-import { Task } from './task/task.model';
+import { type Task } from './task/task.model';
+import { TasksService } from './task.service';
 
 @Component({
   selector: 'app-taskboard',
@@ -15,59 +16,22 @@ import { Task } from './task/task.model';
 export class TaskboardComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) name!: string;
-  addTask: boolean = false;
-
-  dummyTasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary:
-        'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'Build first prototype',
-      summary: 'Build a first prototype of the online shop website',
-      dueDate: '2024-05-31',
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Prepare issue template',
-      summary:
-        'Prepare and describe an issue template which will help with project management',
-      dueDate: '2024-06-15',
-    },
-  ]
+  addTask = false;
+  
+  constructor(private tasksService: TasksService) {
+  }
+    // dependency injection: '(...)' tells NG, wich type of value is needed, so NG creates + provides it as an argunemt (NG creates a globally available instance of the service)
+    //'private' (or 'public') creates a tasksService-property that is available in the rest of the class - alternative to 'this.tasksService = tasksService;' (in constrictor body) + 'private tasksService: TasksService' above the constructor
 
   get selectedUserTasks() {
-    return this.dummyTasks.filter((task) => task.userId === this.userId)
-  }
-
-  onDeleteTask(id: string) {
-    this.dummyTasks = this.dummyTasks.filter((taks) => taks.id !== id);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onAddTask() {
     this.addTask = true;
   }
 
-  onCancleAddTask() {
+  onCloseAddTask() {
     this.addTask = false;
-  }
-
-  onAddNewTask(task: newTask) {
-    this.dummyTasks.unshift({ //'unshift()' (alternative to 'push()') sets the obj. to the first place in the arr
-    // this.dummyTasks.push({
-      id: new Date().getTime().toString(),
-      userId: this.userId,
-      title: task.title,
-      summary: task.summary,
-      dueDate: task.date,
-    })
-    this.onCancleAddTask()
   }
 } 

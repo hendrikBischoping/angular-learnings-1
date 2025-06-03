@@ -2,8 +2,8 @@
 
 <main>
     <ul id="users">
-        @for (user of users; track user.id) { <!-- itterates through every 'user' of 'users' to render the data -->
-        <li>
+        @for (user of users; track user.id) {
+            <li>
             <app-user [user]="user" [selected]="user.id === selectedUserId" (select)="onOpenUser($event)" />
         </li>
         }

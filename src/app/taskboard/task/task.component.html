@@ -1,8 +1,7 @@
 <app-card>
     <article>
         <h2>{{ task.title }}</h2>
-        <time>{{ task.dueDate | date: 'fullDate' }}</time> <!-- 'fullDate' is one of many layout-configurations for the angular-pipe 'date' -->
-        <!-- 'pipes' (created with '|') are stg. like 'output-transformers' from angular or also selfmade (transform outputs in templates: e.g. 'date') -->
+        <time>{{ task.dueDate | date: 'fullDate' }}</time>
         <p>{{ task.summary }}</p>
         <p class="actions">
             <button (click)="onCompleteTask()">Complete</button>

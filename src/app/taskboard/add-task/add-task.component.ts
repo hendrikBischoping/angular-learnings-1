@@ -1,31 +1,35 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms'; //summary of functionalities (directives, features, properties etc) that are commonly used with forms (e.g. '[(ngModel)'])
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { type newTask } from '../new-task.model';
+import { TasksService } from '../task.service';
 
 @Component({
   selector: 'app-add-task',
   standalone: true,
-  imports: [FormsModule], // directives such as 'FormsModule' has to be registered at imports just like any used 'component'
+  imports: [FormsModule],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.css'
 })
+
 export class AddTaskComponent {
-  @Output() cancle = new EventEmitter<void>;
-  @Output() add = new EventEmitter<newTask>;
-  enteredTitle = ''; // no imports or typing necessary, if the property is only used within the component (incl. its template)
+  @Input({ required: true }) userId!: string;
+  @Output() close = new EventEmitter<void>;
+  enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
+  private tasksService = inject(TasksService); // 'inject("injectopn-token")' is an alternative to 'constructor()' for making services (e.g. TasksService) available within components
 
   onCancleNewTask() {
-    this.cancle.emit();
+    this.close.emit();
   }
 
   onSubmit() {
-    this.add.emit({
+    this.tasksService.addTask({
       title: this.enteredTitle,
       summary: this.enteredSummary,
-      date: this.enteredDate
-    })
+      date: this.enteredDate,
+    }, this.userId);
+    this.close.emit();
   }
 }
