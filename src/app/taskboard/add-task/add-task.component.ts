@@ -18,8 +18,8 @@ export class AddTaskComponent {
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
-  private tasksService = inject(TasksService); // 'inject("injectopn-token")' is an alternative to 'constructor()' for making services (e.g. TasksService) available within components
-
+  private tasksService = inject(TasksService);
+  
   onCancleNewTask() {
     this.close.emit();
   }

@@ -18,10 +18,7 @@ export class TaskboardComponent {
   @Input({ required: true }) name!: string;
   addTask = false;
   
-  constructor(private tasksService: TasksService) {
-  }
-    // dependency injection: '(...)' tells NG, wich type of value is needed, so NG creates + provides it as an argunemt (NG creates a globally available instance of the service)
-    //'private' (or 'public') creates a tasksService-property that is available in the rest of the class - alternative to 'this.tasksService = tasksService;' (in constrictor body) + 'private tasksService: TasksService' above the constructor
+  constructor(private tasksService: TasksService) {}
 
   get selectedUserTasks() {
     return this.tasksService.getUserTasks(this.userId);

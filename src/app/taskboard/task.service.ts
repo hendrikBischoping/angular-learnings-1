@@ -31,6 +31,14 @@ export class TasksService {
         },
     ];
 
+    constructor() {
+        const tasks = localStorage.getItem('tasks')
+        
+        if (tasks) {
+            this.dummyTasks = JSON.parse(tasks); // checks if the data stored in LS differs from dummyTasks and overwrites dummyTasks if necessary (loads stored data from LS)
+        }
+    }
+
     getUserTasks(userId: string) {
         return this.dummyTasks.filter((task) => task.userId === userId);
     }
@@ -43,9 +51,15 @@ export class TasksService {
             summary: task.summary,
             dueDate: task.date,
         })
+        this.saveTasks()
     }
 
     deleteTask(id: string) {
         this.dummyTasks = this.dummyTasks.filter((taks) => taks.id !== id);
+        this.saveTasks()
+    }
+
+    private saveTasks() {
+        localStorage.setItem('tasks', JSON.stringify(this.dummyTasks)); // checks if the data stored in LS differs from dummyTasks and overwrites LS-data if necessary (uploads new data to LS)
     }
 }
